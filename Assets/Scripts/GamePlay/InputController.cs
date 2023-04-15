@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class InputController : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class InputController : MonoBehaviour
     [SerializeField] private float highlightRiseAmount = 3;
     private Camera mainCam;
     private Vector3 startPos;
+    private Quaternion startRot;
     private int selectedInstanceID;
     private bool hasItem;
     [SerializeField] private LayerMask rayMask;
@@ -29,8 +31,10 @@ public class InputController : MonoBehaviour
 
     private void ReleaseItem()
     {
-        selectedItem.rb.isKinematic = false;
-        // selectedItem.rb.
+        Rigidbody rb = selectedItem.rb;
+        rb.isKinematic = false;
+        rb.DOMove(startPos, .3f);
+        selectedItem.transform.DORotateQuaternion(startRot, .3f);
         hasItem = false;
         selectedItem = null;
         selectedInstanceID = -1;
@@ -40,6 +44,7 @@ public class InputController : MonoBehaviour
     {
         selectedItem = item;
         startPos = selectedItem.transform.position;
+        startRot = selectedItem.transform.rotation;
         item.rb.isKinematic = true;
         var pos = selectedItem.transform.position;
         selectedItem.transform.position = pos + (mainCam.transform.position - pos).normalized * highlightRiseAmount;
