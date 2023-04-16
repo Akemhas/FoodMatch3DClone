@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6457731821954047957}
   - component: {fileID: -483569958149951876}
   - component: {fileID: 1276041948681575581}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Item_Pizza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1276041948681575581}
+  itemData: {fileID: 11400000, guid: 3404d94d68ce12c41be529009013fab8, type: 2}
 --- !u!54 &1276041948681575581
 Rigidbody:
   m_ObjectHideFlags: 0
