@@ -4,15 +4,19 @@ public class Item : MonoBehaviour
 {
     public Rigidbody rb;
 
+    void OnValidate()
+    {
+        if(rb == null) rb = GetComponentInChildren<Rigidbody>();
+    }
+
     void Start()
     {
-        Debug.Log(ItemSlotManager.Instance.itemSlot);
     }
 }
 
 public enum ItemType
 {
-    Apple,
+    Tomato,
     Pizza,
     Hamburger
 }
