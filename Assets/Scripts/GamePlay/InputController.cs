@@ -3,8 +3,9 @@ using DG.Tweening;
 
 public class InputController : MonoBehaviour
 {
-    public Item selectedItem;
     [SerializeField] private float highlightRiseAmount = 3;
+
+    private Item selectedItem;
     private Camera mainCam;
     private Vector3 startPos;
     private Quaternion startRot;
@@ -42,7 +43,6 @@ public class InputController : MonoBehaviour
 
     private void ReleaseItem()
     {
-        Debug.Log("Release");
         Rigidbody rb = selectedItem.rb;
         rb.isKinematic = false;
         DOTween.Kill(selectedItem.GetInstanceID());
