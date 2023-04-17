@@ -18,9 +18,8 @@ public class UIManager : Singleton<UIManager>
     private ObjectPool<Image> starPool;
     private int starCount;
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
         mainCam = Camera.main;
         uiStarCountTMP.SetText($"{starCount}");
         starPool = new(() => Instantiate(starImagePrefab, transform), x => x.gameObject.SetActive(true), x => x.gameObject.SetActive(false), defaultCapacity: 10, maxSize: 20);

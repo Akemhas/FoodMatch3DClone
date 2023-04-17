@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
+public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static readonly object Lock = new object();
 
@@ -18,10 +18,5 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
             }
             return _instance;
         }
-    }
-
-    protected virtual void Awake()
-    {
-        _instance = (T)this;
     }
 }
