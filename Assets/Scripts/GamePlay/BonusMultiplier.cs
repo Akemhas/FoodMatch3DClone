@@ -20,9 +20,10 @@ public class BonusMultiplier : MonoBehaviour
 
     public void IncreaseMultiplier()
     {
+        UIManager.Instance.SendStar(transform.position, _currentMultiplier);
         _currentMultiplier++;
         UpdateCountText();
-        fillBar.FillTheBar(1, 10 / _currentMultiplier);
+        fillBar.FillTheBar(1, 20 / _currentMultiplier);
     }
 
     private void UpdateCountText() => countTMP.SetText($"X{_currentMultiplier}");
