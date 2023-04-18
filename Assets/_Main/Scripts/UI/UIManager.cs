@@ -7,6 +7,8 @@ using TMPro;
 public class UIManager : Singleton<UIManager>
 {
     public BonusMultiplier bonusMultiplier;
+    public StageTimer stageTimer;
+
     [Space]
     [SerializeField] private Image starImagePrefab;
     [Space]

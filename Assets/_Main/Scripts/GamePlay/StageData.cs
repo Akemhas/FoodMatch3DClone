@@ -4,4 +4,5 @@ using UnityEngine;
 public class StageData : ScriptableObject
 {
     public ItemData[] itemsToSpawn;
+    public int stageDuration;
 }

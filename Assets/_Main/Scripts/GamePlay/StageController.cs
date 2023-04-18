@@ -21,6 +21,7 @@ public class StageController : Singleton<StageController>
     private void StartGame()
     {
         ItemManager.Instance.SpawnIems(stageData);
+        UIManager.Instance.stageTimer.StartTimer(stageData.stageDuration);
         OnGameStart?.Invoke();
     }
 
