@@ -18,6 +18,12 @@ public class StageController : Singleton<StageController>
         set => PlayerPrefs.SetInt("CurrentStageIndex", value % stageDatas.Length);
     }
 
+    private int Level
+    {
+        get => PlayerPrefs.GetInt("Level", 0);
+        set => PlayerPrefs.SetInt("Level", value);
+    }
+
     private StageData stageData;
     private int failCount;
     public static Action OnGameStart;
@@ -33,6 +39,7 @@ public class StageController : Singleton<StageController>
     private void StartGame()
     {
         ItemManager.Instance.SpawnIems(stageData);
+        UIManager.Instance.UpdateLevelTMP(Level + 1);
         UIManager.Instance.stageTimer.StartTimer(stageData.stageDuration);
         CurrentStage = GameStage.Play;
         OnGameStart?.Invoke();
@@ -59,6 +66,7 @@ public class StageController : Singleton<StageController>
     {
         CurrentStage = GameStage.End;
         CurrentStageIndex++;
+        Level++;
         OnGameEnd?.Invoke();
         UIManager.Instance.successUI.Success();
     }

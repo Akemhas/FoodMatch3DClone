@@ -12,6 +12,7 @@ public class UIManager : Singleton<UIManager>
     public SuccessUI successUI;
 
     [Space]
+    [SerializeField] private TextMeshProUGUI levelTMP;
     [SerializeField] private Image starImagePrefab;
     [Space]
     [SerializeField] private Transform uiStarTransform;
@@ -32,6 +33,11 @@ public class UIManager : Singleton<UIManager>
     private void Start()
     {
         uiStarPosition = uiStarTransform.position;
+    }
+
+    public void UpdateLevelTMP(int level)
+    {
+        levelTMP.SetText($"Lvl {level}");
     }
 
     public void SendStar(Vector3 fromPosition, int count)
