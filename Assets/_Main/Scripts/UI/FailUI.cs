@@ -47,11 +47,11 @@ public class FailUI : MonoBehaviour
         seq.OnComplete(() =>
         {
             failNotification.gameObject.SetActive(false);
-            OpenFailPanel(showReviveButton);
+            OpenPanel(showReviveButton);
         });
     }
 
-    private void OpenFailPanel(bool showReviveButton)
+    private void OpenPanel(bool showReviveButton)
     {
         failPanel.gameObject.SetActive(true);
         reviveButton.gameObject.SetActive(showReviveButton);

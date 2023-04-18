@@ -49,7 +49,7 @@ public class ItemSlotManager : Singleton<ItemSlotManager>
         }
     }
 
-    public void ClearOneItemType()
+    public void ClearHint()
     {
         ItemType itemTypeToClear = ItemType.Empty;
         int maxItemAmount = -1;
@@ -64,6 +64,12 @@ public class ItemSlotManager : Singleton<ItemSlotManager>
                 maxItemAmount = itemAmount;
                 itemTypeToClear = itemType;
             }
+        }
+
+        if (itemTypeToClear == ItemType.Empty)
+        {
+            itemTypeToClear = ItemManager.Instance.GetAnUnslottedItem();
+            maxItemAmount = 3;
         }
 
         // Not Enough Space for Hint

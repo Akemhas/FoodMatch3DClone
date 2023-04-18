@@ -85,6 +85,22 @@ public class ItemManager : Singleton<ItemManager>
         return itemsToReturn;
     }
 
+    public ItemType GetAnUnslottedItem()
+    {
+        var array = EnumUtils<ItemType>.GetEnumValues();
+        for (int i = 0; i < array.Length - 1; i++)
+        {
+            ItemType typeToCheck = EnumUtils<ItemType>.GetEnumValue(i);
+            if (!spawnedItems.ContainsKey(typeToCheck)) continue;
+            Item[] items = spawnedItems[typeToCheck];
+            for (int j = 0; j < items.Length; j++)
+            {
+                if (!items[j].slotted) return typeToCheck;
+            }
+        }
+        return ItemType.Empty;
+    }
+
     public void DestroyItems(ItemType itemType)
     {
         Item[] items = spawnedItems[itemType];

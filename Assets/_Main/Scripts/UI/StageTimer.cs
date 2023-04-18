@@ -7,6 +7,7 @@ public class StageTimer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerTMP;
 
+    public bool HasTimeEnded => _currentTimer <= 0;
     private int _currentTimer;
     private WaitForSeconds oneSecWait;
     public Action OnTimerEnd;
@@ -38,6 +39,7 @@ public class StageTimer : MonoBehaviour
         }
 
         OnTimerEnd?.Invoke();
+        StageController.Instance.FailGame();
     }
 
     private void SetTimerText(int timerInSecond)
