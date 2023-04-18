@@ -4,6 +4,8 @@ using UnityEngine;
 public class ItemManager : Singleton<ItemManager>
 {
     private List<Vector3> gridPositions = new();
+    private Dictionary<ItemType, Item[]> spawnedItems = new();
+    private float destroyDelay = .2f;
 
     #region Grid
     [Header("Grid Variables")]
@@ -60,13 +62,40 @@ public class ItemManager : Singleton<ItemManager>
         int count = stageData.itemsToSpawn.Length;
         for (int i = 0; i < count; i++)
         {
+            spawnedItems.Add(stageData.itemsToSpawn[i].itemType, new Item[3]);
             for (int j = 0; j < 3; j++)
             {
                 int randomIndex = Random.Range(0, clonePosList.Count);
                 var pos = clonePosList[randomIndex];
                 clonePosList.RemoveAt(randomIndex);
-                Instantiate(stageData.itemsToSpawn[i].itemPrefab, pos, Quaternion.Euler(RandomAngle, RandomAngle, RandomAngle));
+                var item = Instantiate(stageData.itemsToSpawn[i].itemPrefab, pos, Quaternion.Euler(RandomAngle, RandomAngle, RandomAngle));
+                spawnedItems[item.itemData.itemType][j] = item;
             }
         }
+    }
+
+    public List<Item> GetUnslottedItems(ItemType itemType)
+    {
+        Item[] items = spawnedItems[itemType];
+        List<Item> itemsToReturn = new();
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (!items[i].slotted) itemsToReturn.Add(items[i]);
+        }
+        return itemsToReturn;
+    }
+
+    public void DestroyItems(ItemType itemType)
+    {
+        Item[] items = spawnedItems[itemType];
+
+        for (int i = 0; i < items.Length; i++)
+        {
+            Destroy(items[i].gameObject, destroyDelay);
+        }
+
+        spawnedItems.Remove(itemType);
+
+        if (spawnedItems.Count == 0) StageController.Instance.SuccessGame();
     }
 }

@@ -8,6 +8,7 @@ public class UIManager : Singleton<UIManager>
 {
     public BonusMultiplier bonusMultiplier;
     public StageTimer stageTimer;
+    public FailUI failUI;
 
     [Space]
     [SerializeField] private Image starImagePrefab;

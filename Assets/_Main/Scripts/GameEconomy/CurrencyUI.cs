@@ -101,7 +101,5 @@ public abstract class CurrencyUI<T> : CanvasUI<T> where T : MonoBehaviour
 
 public enum CurrencyType
 {
-    Gem,
     Coin,
-    Ticket
 }

@@ -28,7 +28,7 @@ public class StageTimer : MonoBehaviour
         while (_currentTimer > 0)
         {
             yield return oneSecWait;
-            if (StageController.CurrentStage == GameStage.Pause)
+            if (StageController.CurrentStage == GameStage.Pause || StageController.CurrentStage == GameStage.End)
             {
                 yield return null;
                 continue;

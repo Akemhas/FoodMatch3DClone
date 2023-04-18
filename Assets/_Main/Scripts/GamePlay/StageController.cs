@@ -22,9 +22,33 @@ public class StageController : Singleton<StageController>
     {
         ItemManager.Instance.SpawnIems(stageData);
         UIManager.Instance.stageTimer.StartTimer(stageData.stageDuration);
+        CurrentStage = GameStage.Play;
         OnGameStart?.Invoke();
     }
 
+    public void ReviveGame()
+    {
+        CurrentStage = GameStage.Play;
+        ItemSlotManager.Instance.ClearSlots();
+    }
+
+    public void PauseGame()
+    {
+        CurrentStage = GameStage.Pause;
+    }
+
+    public void SuccessGame()
+    {
+        CurrentStage = GameStage.End;
+    }
+
+    private int failCount;
+    public void FailGame()
+    {
+        CurrentStage = GameStage.End;
+        failCount++;
+        UIManager.Instance.failUI.Fail(failCount < 2);
+    }
 }
 
 public enum GameStage

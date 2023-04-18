@@ -31,6 +31,51 @@ public class ItemSlotManager : Singleton<ItemSlotManager>
     //     seperatorCollider.position = cam.ViewportToWorldPoint(new Vector3(0.5f, _slotsYPosition + 0.1f, zOffsetFromCamera));
     // }
 
+    [ContextMenu("Clear Slots")]
+    public void ClearSlots()
+    {
+        ItemType lastDeletedItemType = ItemType.Empty;
+        for (int i = 0; i < _itemSlots.Length; i++)
+        {
+            if (!_itemSlots[i].hasItem) continue;
+            ItemType itemType = _itemSlots[i].item.itemData.itemType;
+            if (lastDeletedItemType != itemType)
+            {
+                lastDeletedItemType = itemType;
+                ItemManager.Instance.DestroyItems(itemType);
+            }
+            _itemSlots[i].FreeSlot();
+            slottedItemCount--;
+        }
+    }
+
+    public void ClearOneItemType()
+    {
+        ItemType itemTypeToClear = ItemType.Empty;
+        int maxItemAmount = -1;
+        for (int i = _itemSlots.Length - 1; i >= 0; i--)
+        {
+            ItemSlot slot = _itemSlots[i];
+            if (!slot.hasItem) continue;
+            ItemType itemType = slot.item.itemData.itemType;
+            int itemAmount = itemAmountDict[itemType];
+            if (itemAmount > maxItemAmount)
+            {
+                maxItemAmount = itemAmount;
+                itemTypeToClear = itemType;
+            }
+        }
+
+        // Not Enough Space for Hint
+        if (3 - maxItemAmount > _itemSlots.Length - slottedItemCount) return;
+
+        var itemsToSlot = ItemManager.Instance.GetUnslottedItems(itemTypeToClear);
+        for (int i = 0; i < itemsToSlot.Count; i++)
+        {
+            SlotTheItem(itemsToSlot[i]);
+        }
+    }
+
     public void SlotTheItem(Item item)
     {
         ItemType itemType = item.itemData.itemType;
@@ -61,6 +106,11 @@ public class ItemSlotManager : Singleton<ItemSlotManager>
         {
             MergeItems(itemType);
         }
+
+        if (slottedItemCount >= _itemSlots.Length)
+        {
+            StageController.Instance.FailGame();
+        }
     }
 
     private void MergeItems(ItemType itemType)
@@ -74,16 +124,13 @@ public class ItemSlotManager : Singleton<ItemSlotManager>
                 break;
             }
         }
+
         var item0 = _itemSlots[leftMostIndex].item;
-        var item1 = _itemSlots[leftMostIndex + 1].item;
         var item2 = _itemSlots[leftMostIndex + 2].item;
         _itemSlots[leftMostIndex + 1].SlotTheItem(item0);
         _itemSlots[leftMostIndex + 1].SlotTheItem(item2);
 
-        float destroyDelay = .2f;
-        Destroy(item0.gameObject, destroyDelay);
-        Destroy(item1.gameObject, destroyDelay);
-        Destroy(item2.gameObject, destroyDelay);
+        ItemManager.Instance.DestroyItems(itemType);
 
         for (int i = leftMostIndex + 3; i < slottedItemCount; i++)
         {
@@ -138,4 +185,5 @@ public class ItemSlotManager : Singleton<ItemSlotManager>
         }
         return false;
     }
+
 }

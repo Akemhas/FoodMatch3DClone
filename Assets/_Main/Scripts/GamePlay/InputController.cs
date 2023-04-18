@@ -21,6 +21,7 @@ public class InputController : MonoBehaviour
 
     private void Update()
     {
+        if(StageController.CurrentStage == GameStage.End) return;
         if (Input.GetMouseButton(0))
         {
             frameCounter++;

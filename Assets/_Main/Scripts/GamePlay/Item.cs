@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    public bool slotted;
     public Vector3 defaultScale;
     public Rigidbody rb;
 
@@ -30,5 +31,6 @@ public enum ItemType
     Peanut,
     Pear,
     Strawberry,
-    Watermelon
+    Watermelon,
+    Empty
 }

@@ -10,6 +10,7 @@ public class ItemSlot : MonoBehaviour
     public void SlotTheItem(Item item)
     {
         this.item = item;
+        item.slotted = true;
         item.gameObject.layer = 0;
         hasItem = true;
 
