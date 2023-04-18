@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a80d150eadfecd944991c77e119752a2, type: 3}
-  m_Name: Tomato
+  m_Name: Peanut
   m_EditorClassIdentifier: 
-  itemType: 0
-  itemPrefab: {fileID: -483569958149951876, guid: 2a6d1e9a06792254fb89ec0b32f0ef0b,
+  itemType: 6
+  itemPrefab: {fileID: -483569958149951876, guid: 6136ede28b7374b4a9e7260a974caf59,
     type: 3}

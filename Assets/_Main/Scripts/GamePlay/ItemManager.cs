@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -55,15 +54,19 @@ public class ItemManager : Singleton<ItemManager>
 
     public void SpawnIems(StageData stageData)
     {
+        if (gridSize.x * gridSize.y < stageData.itemsToSpawn.Length * 3) Debug.LogError("Grid Size is Not Enough");
         CreateItemGrid();
         var clonePosList = new List<Vector3>(gridPositions);
         int count = stageData.itemsToSpawn.Length;
         for (int i = 0; i < count; i++)
         {
-            int randomIndex = Random.Range(0, clonePosList.Count);
-            var pos = clonePosList[randomIndex];
-            clonePosList.RemoveAt(randomIndex);
-            Instantiate(stageData.itemsToSpawn[i].itemPrefab, pos, Quaternion.Euler(RandomAngle, RandomAngle, RandomAngle));
+            for (int j = 0; j < 3; j++)
+            {
+                int randomIndex = Random.Range(0, clonePosList.Count);
+                var pos = clonePosList[randomIndex];
+                clonePosList.RemoveAt(randomIndex);
+                Instantiate(stageData.itemsToSpawn[i].itemPrefab, pos, Quaternion.Euler(RandomAngle, RandomAngle, RandomAngle));
+            }
         }
     }
 }

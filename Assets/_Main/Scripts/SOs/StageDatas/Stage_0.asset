@@ -15,20 +15,12 @@ MonoBehaviour:
   itemsToSpawn:
   - {fileID: 11400000, guid: e6773d0b9e24f154cafacadc579e60f8, type: 2}
   - {fileID: 11400000, guid: 3404d94d68ce12c41be529009013fab8, type: 2}
-  - {fileID: 11400000, guid: e6773d0b9e24f154cafacadc579e60f8, type: 2}
-  - {fileID: 11400000, guid: 3404d94d68ce12c41be529009013fab8, type: 2}
-  - {fileID: 11400000, guid: e6773d0b9e24f154cafacadc579e60f8, type: 2}
-  - {fileID: 11400000, guid: e6773d0b9e24f154cafacadc579e60f8, type: 2}
-  - {fileID: 11400000, guid: 3404d94d68ce12c41be529009013fab8, type: 2}
-  - {fileID: 11400000, guid: e6773d0b9e24f154cafacadc579e60f8, type: 2}
-  - {fileID: 11400000, guid: e6773d0b9e24f154cafacadc579e60f8, type: 2}
-  - {fileID: 11400000, guid: 3404d94d68ce12c41be529009013fab8, type: 2}
-  - {fileID: 11400000, guid: 3404d94d68ce12c41be529009013fab8, type: 2}
-  - {fileID: 11400000, guid: 3404d94d68ce12c41be529009013fab8, type: 2}
-  - {fileID: 11400000, guid: 3404d94d68ce12c41be529009013fab8, type: 2}
-  - {fileID: 11400000, guid: 3404d94d68ce12c41be529009013fab8, type: 2}
-  - {fileID: 11400000, guid: 3404d94d68ce12c41be529009013fab8, type: 2}
-  - {fileID: 11400000, guid: 3404d94d68ce12c41be529009013fab8, type: 2}
-  - {fileID: 11400000, guid: 3404d94d68ce12c41be529009013fab8, type: 2}
-  - {fileID: 11400000, guid: 3404d94d68ce12c41be529009013fab8, type: 2}
+  - {fileID: 11400000, guid: 8bb6be3ddd1663149b3de30c86bbc8c0, type: 2}
+  - {fileID: 11400000, guid: 5cf33b6bb52bd024eab44922e3f67e9b, type: 2}
+  - {fileID: 11400000, guid: 030ec6b31b0a89445ad6387efc30b66a, type: 2}
+  - {fileID: 11400000, guid: 2952c2c839f6afd4d997efec5644c6f6, type: 2}
+  - {fileID: 11400000, guid: 76ccb3e9ed52e65458462cf2df1b2a3b, type: 2}
+  - {fileID: 11400000, guid: 6fff2ff4d360b7548a84c5de93226576, type: 2}
+  - {fileID: 11400000, guid: 758d01b7ef71838468f9159738c73298, type: 2}
+  - {fileID: 11400000, guid: d26e24de67b9f0d449412cd27f7be09f, type: 2}
   stageDuration: 240

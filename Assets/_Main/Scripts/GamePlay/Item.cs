@@ -5,7 +5,7 @@ public class Item : MonoBehaviour
     public Vector3 defaultScale;
     public Rigidbody rb;
 
-    // Too Lazy to fix nesting issue in here... :D At least that I can say even Unity did this once
+    // Fix this nesting issue later
     public ItemData itemData;
 
     private void Start()
@@ -21,7 +21,14 @@ public class Item : MonoBehaviour
 
 public enum ItemType
 {
-    Tomato,
-    Pizza,
-    Hamburger
+    Apple,
+    Avocado,
+    Banana,
+    Cherry,
+    Lemon,
+    Peach,
+    Peanut,
+    Pear,
+    Strawberry,
+    Watermelon
 }

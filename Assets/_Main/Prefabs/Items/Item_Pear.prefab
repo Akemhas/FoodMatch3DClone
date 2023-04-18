@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -483569958149951876}
   - component: {fileID: 1276041948681575581}
   m_Layer: 9
-  m_Name: Item_Pizza
+  m_Name: Item_Pear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6457731821954047952}
-  m_Mesh: {fileID: -2304508562620316840, guid: ab36ecd1a21da3b47b2166a38393a4c1, type: 3}
+  m_Mesh: {fileID: 419726150723840679, guid: a6fb11919acaf3246a350b83a2d4c400, type: 3}
 --- !u!23 &6457731821954047958
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4221a51bbf2c9744aa3f167c31d35562, type: 2}
+  - {fileID: 2100000, guid: 2629bdb5f95d3aa4c8ff0bbc8840c7a5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,7 +99,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -2304508562620316840, guid: ab36ecd1a21da3b47b2166a38393a4c1, type: 3}
+  m_Mesh: {fileID: 419726150723840679, guid: a6fb11919acaf3246a350b83a2d4c400, type: 3}
 --- !u!114 &-483569958149951876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,8 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7b5043b157b7f46bbc379be9b550e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultScale: {x: 0, y: 0, z: 0}
   rb: {fileID: 1276041948681575581}
-  itemData: {fileID: 11400000, guid: 3404d94d68ce12c41be529009013fab8, type: 2}
+  itemData: {fileID: 11400000, guid: 6fff2ff4d360b7548a84c5de93226576, type: 2}
 --- !u!54 &1276041948681575581
 Rigidbody:
   m_ObjectHideFlags: 0
