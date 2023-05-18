@@ -23,6 +23,7 @@ public class InputController : MonoBehaviour
     {
         if(StageController.CurrentStage == GameStage.End) return;
         if(StageController.CurrentStage == GameStage.Pause) return;
+        
         if (Input.GetMouseButton(0))
         {
             frameCounter++;

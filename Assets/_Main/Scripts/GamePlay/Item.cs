@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public bool slotted;
-    public Vector3 defaultScale;
+    [ReadOnly] public bool slotted;
+    internal Vector3 defaultScale;
     public Rigidbody rb;
 
     // Fix this nesting issue later
